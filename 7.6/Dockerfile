@@ -47,6 +47,7 @@ RUN apk add --no-cache -t .build-deps wget ca-certificates gnupg openssl \
   chown -R elasticsearch:elasticsearch "$path"; \
   done \
   && rm -rf /tmp/* /usr/share/elasticsearch/jdk \
+  && ln -s /usr/lib/jvm/default-jvm/jre /usr/share/elasticsearch/jdk \
   && apk del --purge .build-deps
 
 # TODO: remove this (it removes X-Pack ML so it works on Alpine)
